@@ -56,8 +56,16 @@ axios.request({
     url: "https://jsonplaceholder.typicode.com/posts/1",
     headers:{
         "Content-Type": "application/json"
-    },
-})
+    }
+}).then(deleteSuccess).catch(deleteFail);
+
+function deleteSuccess(response){
+    console.log(response);
+}
+
+function deleteFail(error){
+    console.error(error);
+}
 
 axios.request({
     method: "GET",
