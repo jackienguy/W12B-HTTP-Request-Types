@@ -29,7 +29,7 @@ button.addEventListener("click", post);
 
 
 // PATCH
-function updatePost(){
+
     axios.request({
         method: "PATCH",
         url: "https://jsonplaceholder.typicode.com/posts/1",
@@ -37,10 +37,33 @@ function updatePost(){
             "Content-Type": "application/json" 
         },
         data:{
-            id: 1,
-            title: 'foo',
-            body: 'bar',
-            userId: 1,
+            title: 'It is worth it to go to space?',
         }
     }).then(updateSuccess).catch(updateFail);
+
+
+function updateSuccess(response){
+    console.log(response);
 }
+
+function updateFail(error){
+    console.error(error);
+}
+
+// Delete
+axios.request({
+    method: "Delete",
+    url: "https://jsonplaceholder.typicode.com/posts/1",
+    headers:{
+        "Content-Type": "application/json"
+    },
+})
+
+axios.request({
+    method: "GET",
+    url: "https://jsonplaceholder.typicode.com/posts",
+})
+
+
+
+
