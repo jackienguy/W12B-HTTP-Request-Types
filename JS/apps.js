@@ -67,10 +67,23 @@ function deleteFail(error){
     console.error(error);
 }
 
+// GET
+
 axios.request({
     method: "GET",
     url: "https://jsonplaceholder.typicode.com/posts",
-})
+}).then(getSuccess).catch(getFail);
+
+function getSuccess(response){
+    console.log(response);
+    document.getElementById("output").innerHTML = response.data;
+}
+
+function getFail(error){
+    console.error(error);
+}
+
+
 
 
 
